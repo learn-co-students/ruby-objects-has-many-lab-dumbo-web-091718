@@ -24,8 +24,8 @@ describe "Artist" do
 
     describe "#add_song" do
       it "takes in an argument of a song and associates that song with the artist by telling the song that it belongs to that artist" do
-        hello = Song.new("Hello")
-        adele.add_song(hello)
+        hello = Song.new("Hello") #initialize hello as #Song, "Hello"
+        adele.add_song(hello) # add #Song to #Artist adele 
         expect(adele.songs).to include(hello)
         expect(hello.artist).to eq(adele)
       end
