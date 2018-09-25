@@ -1,22 +1,24 @@
-require 'pry'
-class Artist
+class Author
 
-  attr_accessor :name, :songs
-  attr_reader  :artist
+  attr_accessor :name, :posts
 
   def initialize(name)
     @name = name
-    @songs = Array.new
+    @posts = Array.new 
   end
 
-  def add_song(song)
-    song.artist = self
-    @songs << song
+  def add_post(post)
+    post.author = self
+    @posts << post
   end
 
-  def add_song_by_name(song_by_name)
-    add_song(song_by_name)
-    song_by_name.artist = self
+  def add_post_by_title(post_title)
+    post = Post.new(post_title)
+    post.author = self
+    @posts << post
   end
 
+  def self.post_count
+    return Post.all.length
+  end
 end
